@@ -13,12 +13,19 @@ from prompt_toolkit.completion import NestedCompleter
 from gamestonk_terminal import config_terminal as cfg
 from gamestonk_terminal import feature_flags as gtff
 from gamestonk_terminal import thought_of_the_day as thought
-from gamestonk_terminal import res_menu as rm
 from gamestonk_terminal.discovery import disc_controller
 from gamestonk_terminal.due_diligence import dd_controller
 from gamestonk_terminal.fundamental_analysis import fa_controller
 from gamestonk_terminal.helper_funcs import b_is_stock_market_open, get_flair
-from gamestonk_terminal.main_helper import clear, export, load, print_help, view, candle
+from gamestonk_terminal.main_helper import (
+    clear,
+    export,
+    load,
+    print_help,
+    view,
+    candle,
+    print_goodbye,
+)
 from gamestonk_terminal.menu import session
 from gamestonk_terminal.papermill import papermill_controller as mill
 from gamestonk_terminal.behavioural_analysis import ba_controller
@@ -26,13 +33,16 @@ from gamestonk_terminal.technical_analysis import ta_controller
 from gamestonk_terminal.comparison_analysis import ca_controller
 from gamestonk_terminal.exploratory_data_analysis import eda_controller
 from gamestonk_terminal.options import op_controller
-from gamestonk_terminal.fred import fred_controller
+from gamestonk_terminal.econ import econ_controller
 from gamestonk_terminal.residuals_analysis import ra_controller
 from gamestonk_terminal.portfolio import port_controller
 from gamestonk_terminal.cryptocurrency import crypto_controller
 from gamestonk_terminal.screener import screener_controller
 from gamestonk_terminal.portfolio_optimization import po_controller
 from gamestonk_terminal.forex import fx_controller
+from gamestonk_terminal.backtesting import bt_controller
+from gamestonk_terminal.resource_collection import rc_controller
+from gamestonk_terminal.research import res_controller
 
 
 # pylint: disable=too-many-statements,too-many-branches
@@ -46,7 +56,7 @@ def main():
         os.system("")
 
     s_ticker = ""
-    s_start = ""
+    s_start = "2015-01-01"
     df_stock = pd.DataFrame()
     s_interval = "1440min"
 
@@ -76,17 +86,19 @@ def main():
         "res",
         "fa",
         "ta",
+        "bt",
         "dd",
         "eda",
         "pred",
         "ca",
         "op",
-        "fred",
+        "econ",
         "pa",
         "crypto",
         "ra",
         "po",
         "fx",
+        "rc",
     ]
 
     menu_parser.add_argument("opt", choices=choices)
@@ -100,7 +112,7 @@ def main():
         print(e, "\n")
 
     # Print first welcome message and help
-    print("\nWelcome to Gamestonk Terminal 🚀\n")
+    print("\nWelcome to Gamestonk Terminal Ape.\n")
     should_print_help = True
     parsed_stdin = False
 
@@ -209,7 +221,7 @@ def main():
             )
 
         elif ns_known_args.opt == "res":
-            b_quit = rm.res_menu(
+            b_quit = res_controller.menu(
                 s_ticker.split(".")[0] if "." in s_ticker else s_ticker,
                 s_start,
                 s_interval,
@@ -279,8 +291,8 @@ def main():
                 s_ticker, df_stock["5. adjusted close"].values[-1]
             )
 
-        elif ns_known_args.opt == "fred":
-            b_quit = fred_controller.menu()
+        elif ns_known_args.opt == "econ":
+            b_quit = econ_controller.menu()
 
         elif ns_known_args.opt == "pa":
             b_quit = port_controller.menu()
@@ -358,6 +370,14 @@ def main():
         elif ns_known_args.opt == "scr":
             b_quit = screener_controller.menu()
 
+        elif ns_known_args.opt == "bt":
+            b_quit = bt_controller.menu(
+                s_ticker.split(".")[0] if "." in s_ticker else s_ticker, s_start
+            )
+
+        elif ns_known_args.opt == "rc":
+            b_quit = rc_controller.menu()
+
         else:
             print("Shouldn't see this command!")
             continue
@@ -368,9 +388,7 @@ def main():
         if not main_cmd:
             should_print_help = True
 
-    print(
-        "Hope you enjoyed the terminal. Remember that stonks only go up. Diamond hands.\n"
-    )
+    print_goodbye()
 
 
 if __name__ == "__main__":

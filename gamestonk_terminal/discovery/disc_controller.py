@@ -22,17 +22,19 @@ from gamestonk_terminal.discovery import (
     yahoo_finance_view,
     marketbeat_view,
     finra_ats_view,
+    finnhub_view,
 )
 
 
 class DiscoveryController:
-    """ Discovery Controller """
+    """Discovery Controller"""
 
     # Command choices
     CHOICES = [
         "help",
         "q",
         "quit",
+        "ipo",
         "map",
         "rtp_sectors",
         "gainers",
@@ -65,13 +67,14 @@ class DiscoveryController:
 
     @staticmethod
     def print_help():
-        """ Print help """
+        """Print help"""
 
         print("\nDiscovery Mode:")
         print("   help           show this discovery menu again")
         print("   q              quit this menu, and shows back to main menu")
         print("   quit           quit to abandon program")
         print("")
+        print("   ipo            past and future IPOs [Finnhub]")
         print("   map            S&P500 index stocks map [Finviz]")
         print("   rtp_sectors    real-time performance sectors [Alpha Vantage]")
         print("   gainers        show latest top gainers [Yahoo Finance]")
@@ -134,6 +137,10 @@ class DiscoveryController:
     def call_quit(self, _):
         """Process Quit command - quit the program"""
         return True
+
+    def call_ipo(self, other_args: List[str]):
+        """Process ipo command"""
+        finnhub_view.ipo_calendar(other_args)
 
     def call_map(self, other_args: List[str]):
         """Process map command"""

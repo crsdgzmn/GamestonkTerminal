@@ -15,12 +15,14 @@
 * [Residual Analysis](#Residual-Analysis)
 * [Portfolio Analysis](#Portfolio-Analysis)
 * [Portfolio Optimization](#Portfolio-Optimization)
-* [FRED](#FRED)
+* [Economy](#Economy)
 * [Options](#Options)
 * [Credit Analysis](#Credit-Analysis)
 * [Cryptocurrencies](#Cryptocurrencies)
 * [Screener](#Screener)
 * [Forex](#Forex)
+* [Backtesting](#Backtesting)
+* [Resource Collection](#Resource-Collection)
 
 ## Additional
 
@@ -38,6 +40,7 @@
 * [x] Add latest and trending news commands (@hinxx) - [PR #347](https://github.com/DidierRLopes/GamestonkTerminal/pull/347)
 * [x] Add top ratings updates (@hinxx) - [PR #357](https://github.com/DidierRLopes/GamestonkTerminal/pull/357)
 * [x] Add dark pool (ATS) data of tickers with growing trades activity (@didier) - [PR #372](https://github.com/DidierRLopes/GamestonkTerminal/pull/372)
+* [x] Past and future IPOs calendar (@didier) - [PR #432](https://github.com/DidierRLopes/GamestonkTerminal/pull/432)
 
 
 **NEXT**
@@ -47,6 +50,7 @@
 
 ## Behavioral Analysis
 * [x] Add FinBrain sentiment from news (@didier) - [PR #223](https://github.com/DidierRLopes/GamestonkTerminal/pull/223)
+* [x] Sentiment stats from Finnhub (@didier) - [PR #433](https://github.com/DidierRLopes/GamestonkTerminal/pull/433)
 
 **NEXT**
 * [ ] Implement a better Twitter client (@aia)
@@ -76,15 +80,17 @@
 * [x] Add technical summary report provided by FinBrain (@didier) - [PR #294](https://github.com/DidierRLopes/GamestonkTerminal/pull/294)
 * [x] Add recommendation based on technical indicators from Tradingview (@didier) - [PR #301](https://github.com/DidierRLopes/GamestonkTerminal/pull/301)
 * [x] Add view of stock historical price with trendlines (support, resistance) by Finviz (@didier) - [PR #317](https://github.com/DidierRLopes/GamestonkTerminal/pull/317)
+* [x] Add auto-recognition of major TA patterns (@didier) - [PR #429](https://github.com/DidierRLopes/GamestonkTerminal/pull/429)
 
 **NEXT**
-* [ ] Add auto-recognition of major TA patterns (@didier)
+
 
 ---
 
 ## Due Diligence
 * [x] Add dark pools (ATS) vs Non-ATS data over time (@didier) - [PR #363](https://github.com/DidierRLopes/GamestonkTerminal/pull/363)
-* [x] Add failure to deliver command (@hinxx) - [PR #366](#https://github.com/DidierRLopes/GamestonkTerminal/pull/366)
+* [x] Add failure to deliver command (@hinxx) - [PR #366](https://github.com/DidierRLopes/GamestonkTerminal/pull/366)
+* [x] Ratings over time (@didier) - [PR #431](https://github.com/DidierRLopes/GamestonkTerminal/pull/431)
 
 **NEXT**
 
@@ -145,6 +151,7 @@
 * [x] Add alpaca (@jmaslek) - [PR #259](https://github.com/DidierRLopes/GamestonkTerminal/pull/229)
 * [x] Add robinhood (@jmaslek) - [PR #229](https://github.com/DidierRLopes/GamestonkTerminal/pull/229)
 * [x] Add Ally Invest (@jmaslek) - [PR #267](https://github.com/DidierRLopes/GamestonkTerminal/pull/267)
+* [x] Degiro support (@deel) - [PR #381](https://github.com/DidierRLopes/GamestonkTerminal/pull/381)
 
 **NEXT**
 * [ ] Merge data from different brokers (@jmaslek)
@@ -165,8 +172,10 @@ ___
 
 ---
 
-## FRED
+## Economy
 * [x] Implement Economic data (gpd, unemployment rate, ...) (@jmaslek) - [PR #167](https://github.com/DidierRLopes/GamestonkTerminal/pull/167)
+* [x] Refactor FRED to ECON menu and add VIX view (@jmaslek) - [PR #405](https://github.com/DidierRLopes/GamestonkTerminal/pull/405)
+* [x] Output economic impact events calendar (@didier) - [PR #430](https://github.com/DidierRLopes/GamestonkTerminal/pull/430)
 
 **NEXT**
 
@@ -191,13 +200,13 @@ ___
 ---
 
 ## Cryptocurrencies
-* [x] Add Coingecko (@jmaslek) - [PR #283](#https://github.com/DidierRLopes/GamestonkTerminal/pull/283)
+* [x] Add Coingecko (@jmaslek) - [PR #283](https://github.com/DidierRLopes/GamestonkTerminal/pull/283)
 * [x] view top coins from coinmarketcap (@jmaslek) - [PR #378](https://github.com/DidierRLopes/GamestonkTerminal/pull/378)
+* [x] Add binance (@jmaslek) [PR #428](#https://github.com/DidierRLopes/GamestonkTerminal/pull/428)
 
 **NEXT**
 * [ ] Add [Coinpaprika](https://coinpaprika.com/api/)
 * [ ] Add crypto charts
-* [ ] Add binance 
 * [ ] Add top altcoin lists
 ---
 
@@ -207,6 +216,7 @@ ___
 * [x] Add screener signals (e.g. top gainers, new highs, most volatile, oversold, major news, ...) from Finviz (@didier) - [PR #314](https://github.com/DidierRLopes/GamestonkTerminal/pull/314)
 * [x] Plot screener historical using Yahoo Finance data (@didier) - [PR #319](https://github.com/DidierRLopes/GamestonkTerminal/pull/319)
 * [x] Add command to take tickers to portfolio optimization (@didier) - [PR #349](https://github.com/DidierRLopes/GamestonkTerminal/pull/349)
+* [x] Add flags to save screeners and run papermill on returned tickers (@alokan) - [PR #414](https://github.com/DidierRLopes/GamestonkTerminal/pull/414)
 
 **NEXT**
 
@@ -214,6 +224,23 @@ ___
 
 ## Forex
 * [x] Add entire forex menu through Oanda (@alokan) - [PR #360](https://github.com/DidierRLopes/GamestonkTerminal/pull/360)
+* [x] Add EDA menu, Behavioural Analysis menu, Due Diligence from other users in Reddit, and latest news regarding currency provided. (@alokan) - [PR #387](https://github.com/DidierRLopes/GamestonkTerminal/pull/387)
+
+**NEXT**
+
+
+---
+
+## Resource Collection
+* [x] Add hfletters and learn commands to resource collection (@didier) - [PR #427](https://github.com/DidierRLopes/GamestonkTerminal/pull/427)
+
+
+**NEXT**
+
+---
+
+## Backtesting
+* [x] Add simple backtest menu with simple strategies and benchmarks (@jmaslek) [PR #415](https://github.com/DidierRLopes/GamestonkTerminal/pull/415)
 
 **NEXT**
 
@@ -244,6 +271,7 @@ ___
 * [x] Add Feature Flags (@aia) - [PR #158](https://github.com/DidierRLopes/GamestonkTerminal/pull/158)
 * [x] Add ad-hoc builds (@aia) - [PR #192](https://github.com/DidierRLopes/GamestonkTerminal/pull/192)
 * [x] Add test generators and test parametrization helpers (@aia) - [PR #264](https://github.com/DidierRLopes/GamestonkTerminal/pull/264)
+* [x] Sphinx documentation https://gamestonk-terminal.readthedocs.io/en/latest/index.html (@piiq) - [PR #413](https://github.com/DidierRLopes/GamestonkTerminal/pull/413)
 
 **NEXT**
 * [ ] Write a developer guide

@@ -3,7 +3,7 @@
 ### Table of contents
 * [Discover Stocks](#Discover-Stocks-)
 * [Behavioural Analysis](#Behavioural-Analysis-)
-* [Research Web pages](#Research-Web-pages)
+* [Research](#Research-)
 * [Fundamental Analysis](#Fundamental-Analysis-)
 * [Technical Analysis](#Technical-Analysis-)
 * [Due Diligence](#Due-Diligence-)
@@ -14,10 +14,12 @@
 * [Comparison Analysis](#Comparison-Analysis-)
 * [Exploratory Data Analysis](#Exploratory-Data-Analysis-)
 * [Residual Analysis](#Residual-Analysis-)
-* [FRED](#FRED-)
+* [Economy](#Economy)
 * [Options](#Options-)
 * [Screener](#Screener-)
 * [Forex](#Forex-)
+* [Backtesting](#Backtesting-)
+* [Resource Collection](#Resource-Collection-)
 
 ## Main
 
@@ -66,6 +68,7 @@ export -f GNUS_data -F csv
 ## Discover Stocks [»](discovery/README.md)
 Command|Description|Source
 ---|---|---
+`ipo`           |past and future IPOs |[Finnhub](https://finnhub.io)
 `map`           |S&P500 index stocks map |[Finviz](https://finviz.com)
 `rtp_sectors`   |real-time performance sectors |[Alpha Vantage](www.alphavantage.co)
 `gainers`       |show latest top gainers |[Yahoo Finance](https://finance.yahoo.com/)
@@ -93,6 +96,7 @@ Command|Description
 ----|----
 [FinBrain](https://finbrain.tech)|
 `finbrain`      |sentiment from 15+ major news headlines
+`stats`         |sentiment stats including comparison with sector
 [Reddit](https://reddit.com)|
 `wsb`           |show what WSB gang is up to in subreddit wallstreetbets
 `watchlist`     |show other users watchlist
@@ -115,7 +119,7 @@ Command|Description
 
 &nbsp;
 
-## Research Web pages
+## Research [»](research/README.md)
 Command|Website
 ----|----
 `macroaxis`         |www.macroaxis.com
@@ -136,11 +140,10 @@ Command|Website
 `macrotrends`       |www.macrotrends.net
 `newsfilter`        |www.newsfilter.io
 `stockanalysis`     |www.stockanalysis.com
-`resources`         |www.tradinganalysisresources.com
 
 &nbsp;
 
-### Fundamental Analysis [»](fundamental_analysis/README.md)
+## Fundamental Analysis [»](fundamental_analysis/README.md)
 
 Command|Description
 ----- | ---------
@@ -182,6 +185,7 @@ Command | Description | Sources
 `view`         | view historical data and trendlines| [Finviz](https://finviz.com/quote.ashx?t=tsla)
 `summary`      | technical summary report| [FinBrain](https://finbrain.tech)
 `recom`        | recommendation based on Technical Indicators| [Tradingview](https://uk.tradingview.com/widget/technical-analysis/)
+`pr`           | pattern recognition| [Finnhub](https://finnhub.io)
 [overlap](https://github.com/twopirllc/pandas-ta/tree/master/pandas_ta/overlap) |
 `ema`         | exponential moving average | [Wikipedia](https://en.wikipedia.org/wiki/Moving_average#Exponential_moving_average), [Investopedia](https://www.investopedia.com/terms/e/ema.asp)
 `sma`         |simple moving average | [Wikipedia](https://en.wikipedia.org/wiki/Moving_average#Simple_moving_average_(boxcar_filter)), [Investopedia](https://www.investopedia.com/terms/s/sma.asp)
@@ -210,6 +214,7 @@ Command|Description|Source
 `analyst`       |analyst prices and ratings of the company |[Finviz](https://finviz.com/)
 `rating`        |rating of the company from strong sell to strong buy | [FMP](https://financialmodelingprep.com/)
 `pt`            |price targets over time |[Business Insider](https://www.businessinsider.com/)
+`rot`           |ratings over time |[Finnhub](https://finnhub.io)
 `est`           |quarter and year analysts earnings estimates |[Business Insider](https://www.businessinsider.com/)
 `ins`           |insider activity over time |[Business Insider](https://www.businessinsider.com/)
 `insider`       |insider trading of the company |[Finviz](https://finviz.com/)
@@ -237,6 +242,7 @@ Command|Technique|Sources
 `lstm`        |Long Short-Term Memory  | [Wikipedia](https://en.wikipedia.org/wiki/Long_short-term_memory), [Details](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 
 &nbsp;
+
 ## Portfolio Analysis [»](portfolio/README.md)
 
 Command|Description|Brokers
@@ -250,6 +256,7 @@ Command|Description|Brokers
 `hold`    | view net holdings across all logins
 
 &nbsp;
+
 ## Portfolio Optimization [»](portfolio_optimization/README.md)
 
 Command|Description
@@ -267,16 +274,24 @@ Command|Description
 
 &nbsp;
 
-
 ## Cryptocurrency [»](cryptocurrency/README.md)
 
 Command|Description
 ------ | ------------
-`load`| load cryptocurrency data
-`view`| load and view cryptocurrency data
+[coingecko](#https://www.coingecko.com/en)|
+`load`| load cryptocurrency data 
+`view`| view loaded cryptocurrency data 
+`trend`| view top 7 coins 
+[coinmarketcap](#http://coinmarketcap.com)|
 `top` | view top coins from coinmarketcap
+[binance](#http://binance.us)|
+`select` | Select a coin/currency
+`book`| show order book
+`candle`| get klines/candles and plot
+`balance`| show coin balance
 
 &nbsp;
+
 ## Comparison Analysis [»](comparison_analysis/README.md)
 Command|Description|Source
 ------ | --------|----
@@ -323,20 +338,23 @@ Command|Description|Source
 `independence`  |tests independent and identically distributed (BDS) | [Wikipedia](https://en.wikipedia.org/wiki/Pearson%27s_chi-squared_test#Testing_for_statistical_independence)
 
 &nbsp;
-## FRED [»](fred/README.md)
-Command|Description
------- | --------
-`gdp`           | GDP
-`unemp`         | Unemployment Rate
-`t1`            | 1-Year Treasury Constant Maturity Rate
-`t5`            | 5-Year Treasury Constant Maturity Rate
-`t10`           | 10-Year Treasury Constant Maturity Rate
-`t30`           | 30-Year Treasury Constant Maturity Rate
-`mort30`        | 30-Year Fixed Rate Mortgage Average
-`fedrate`       | Effective Federal Funds Rate
-`moodAAA`       | Moody's Seasoned AAA Corporate Bond Yield
-`usdcad`        | Canada / U.S. Foreign Exchange Rate (CAD per 1 USD)
-`cust`          | User Specified FRED Data - Please Specify --id
+
+## Economy [»](econ/README.md)
+Command|Description|Source
+------ | -------- | -------- 
+`events`        | economic impact events | https://finnhub.io
+`fred`          | display customized FRED data | https://fred.stlouisfed.org
+`vixcls`        | Volatility Index | https://fred.stlouisfed.org
+`gdp`           | Gross Domestic Product | https://fred.stlouisfed.org
+`unrate`        | Unemployment Rate | https://fred.stlouisfed.org
+`dgs1`          | 1-Year Treasury Constant Maturity Rate | https://fred.stlouisfed.org
+`dgs5`          | 5-Year Treasury Constant Maturity Rate | https://fred.stlouisfed.org
+`dgs10`         | 10-Year Treasury Constant Maturity Rate | https://fred.stlouisfed.org
+`dgs30`         | 30-Year Treasury Constant Maturity Rate | https://fred.stlouisfed.org
+`mortgage30us`  | 30-Year Fixed Rate Mortgage Average | https://fred.stlouisfed.org
+`fedfunds`      | Effective Federal Funds Rate | https://fred.stlouisfed.org
+`aaa`           | Moody's Seasoned AAA Corporate Bond Yield | https://fred.stlouisfed.org
+`dexcaus`       | Canada / U.S. Foreign Exchange Rate (CAD per 1 USD) | https://fred.stlouisfed.org
 
 &nbsp;
 
@@ -369,7 +387,6 @@ signals        |view filter signals (e.g. -s top_gainers)
 
 &nbsp;
 
-
 ## Forex [»](forex/README.md)
 Command|Description
 ------ | --------
@@ -388,5 +405,23 @@ order        |place a limit order
 orderbook    |display the orderbook if Oanda provides one for the forex instrument
 positionbook |display the positionbook if Oanda provides one for the forex instrument
 
+&nbsp;
+
+## Backtesting [»](backtesting/README.md)
+Command|Description
+------ | --------
+`ema`           | buy when price exceeds EMA(l)
+`ema_cross`     | buy when EMA(short) > EMA(long)
+`rsi`           | buy when RSI < low and sell when RSI > high
+
+
+
+## Resource Collection [»](resource_collection/README.md)
+Command|Website
+----|----
+`hfletters`         |https://miltonfmr.com/hedge-fund-letters/
+`learn`             |https://moongangcapital.com/free-stock-market-resources/
 
 &nbsp;
+
+
